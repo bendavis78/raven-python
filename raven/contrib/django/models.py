@@ -141,6 +141,7 @@ def get_client(client=None):
 
         class_name = str(class_name)
 
+        options = dict((str(k), v) for k,v in options.iteritems())
         instance = getattr(__import__(module, {}, {}, class_name), class_name)(**options)
         if not tmp_client:
             _client = (client, instance)
